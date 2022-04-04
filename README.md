@@ -22,9 +22,9 @@ pip install --force git+https://github.com/PlaceAutism/rPlace2022.git
 
 For people experienced with Docker, there's also a docker image you can run:
 
-<!-- ```bash
-docker run --pull=always ghcr.io/placenl/placenl-python -u 'USERNAME' 'PASSWORD'
-``` -->
+```bash
+docker run --pull=always lennihein/placeautism_headless -u 'USERNAME' 'PASSWORD'
+```
 
 ## Usage
 
