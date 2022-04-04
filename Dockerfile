@@ -1,6 +1,6 @@
 FROM python:latest
 
-COPY . /opt/PlaceNL
-RUN pip install --force /opt/PlaceNL
+COPY . /opt/PlaceAutism
+RUN pip install --force /opt/PlaceAutism
 
-ENTRYPOINT ["PlaceNL"]
+ENTRYPOINT ["PlaceAutism"]

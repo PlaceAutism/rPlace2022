@@ -1,32 +1,3 @@
-"""
-Headless reddit /r/place 2022 updater.
-
-This Python bot is a terminal application that will automatically update
-r/place pixels from our command and control server. It supports multiple
-reddit accounts and automatically obtains and refreshed access tokens.
-
-Authors:
-- /u/tr4ce
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-"""
-
 from __future__ import annotations
 import re
 import json
@@ -57,7 +28,7 @@ REDDIT_LOGIN_POST = "https://www.reddit.com/login"
 REDDIT_PLACE_URL = "https://www.reddit.com/r/place/"
 REDDIT_PLACE_SET_PIXEL_URL = "https://gql-realtime-2.reddit.com/query"
 PLACE_WEBSOCKET = "wss://gql-realtime-2.reddit.com/query"
-BACKEND_DOMAIN = "placenl.noahvdaa.me"
+BACKEND_DOMAIN = "placeautism.lostinthe.cloud"
 CNC_WEBSOCKET = f"wss://{BACKEND_DOMAIN}/api/ws"
 BACKEND_MAPS_URL = f"https://{BACKEND_DOMAIN}/maps"
 DEFAULT_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:98.0) Gecko/20100101 Firefox/98.0"
@@ -151,7 +122,7 @@ class CNCOrderClient:
     def __init__(self, session):
         self.session = session
         self.ws = None
-        self.logger = logging.getLogger('PlaceNL.cnc')
+        self.logger = logging.getLogger('PlaceAutism.cnc')
 
     async def __aenter__(self):
         self.logger.info("Connecting to Command & Control server...")
@@ -190,7 +161,7 @@ class CNCOrderClient:
             return
 
         await self.ws.send_str(json.dumps({"type": "getmap"}))
-        await self.ws.send_str(json.dumps({"type": "brand", "brand": f"PlaceNLpythonV{__version__}"}))
+        await self.ws.send_str(json.dumps({"type": "brand", "brand": f"PlaceAutismpythonV{__version__}"}))
 
         async for msg in self.ws:
             try:
@@ -257,7 +228,7 @@ class RedditPlaceClient:
         self.access_token_expire = None
         self.current_canvas = None
 
-        self.logger = logging.getLogger(f'PlaceNL.reddit.{username}')
+        self.logger = logging.getLogger(f'PlaceAutism.reddit.{username}')
         self.debug = debug
 
     async def __aenter__(self) -> RedditPlaceClient:
