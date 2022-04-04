@@ -13,5 +13,5 @@ docker run --pull=always lennihein/placeautism_headless -u 'USERNAME' 'PASSWORD'
 This also supports multiple accounts:
 
 ```bash
-docker run --pull=always lennihein/placeautism_headless -u 'USERNAME1' 'PASSWORD1' -u 'USERNAME2' 'PASSWORD2' -u 'USERNAME3' 'PASSWORD3'
+docker run --pull=always lennihein/placeautism_headless -u 'USERNAME1' 'PASSWORD1' -u 'USERNAME2' 'PASSWORD2' ...
 ```
